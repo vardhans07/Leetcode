@@ -45,10 +45,30 @@ Explanation: Bob and George both have a condition that starts with DIAB1.
 
 */
 
+select *
+from patients
+where conditions like 'DIAB1%'
+or conditions like '% DIAB1%'
 
+/*
+select  patient_id, patient_name, conditions
+from Patients
+WHERE conditions LIKE 'DIAB1%'         -- Starts with DIAB1
+   OR conditions LIKE '% DIAB1%'       -- DIAB1 appears after a space
+
+# Here is anather for Runtime: 63 ms
+
+select  patient_id, patient_name, conditions
+from Patients
+WHERE conditions REGEXP '(^| )DIAB1[0-9]*'
+
+*/
+
+-- #below wrong ans 
+ /* wthis wrong answer 
 select patient_id , patient_name , conditions
 from Patients
 where conditions like '%DIAB1%';
 
 
-
+*/
