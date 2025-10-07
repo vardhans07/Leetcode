@@ -52,11 +52,12 @@ For 2020-06-02, the Sold item is (Mask), we just return it.
 */
 
 select  sell_date ,
-count(distinct product) as dat_num, 
-group_concat(distinct product order by product asc separator ',')
+count(distinct product) as num_sold, 
+group_concat(distinct product order by product asc separator ',') as products  
 from Activities 
 group by sell_date
 order by sell_date ;
+
 
 ---#GROUP_CONCAT(...) takes values from multiple rows in a group and concatenates them into a single string.
 ---#Example: if a group has rows with product = 'Apple', 'Banana', 'Cherry', then GROUP_CONCAT(product) → "Apple,Banana,Cherry".
