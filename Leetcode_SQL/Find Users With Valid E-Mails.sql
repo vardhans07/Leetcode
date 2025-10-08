@@ -58,13 +58,7 @@ The mail of user 7 starts with a period.
 */
 
 
-SELECT user_id, name, mail
-FROM Users
-WHERE mail LIKE '%@leetcode.com'
-  AND (LEFT(mail,1) BETWEEN 'A' AND 'Z' OR LEFT(mail,1) BETWEEN 'a' AND 'z')
-  AND mail NOT LIKE '\_%@%'
-  AND mail NOT LIKE '.%@%'
-  AND mail NOT LIKE '-%@%'
-  AND mail NOT LIKE '%#%@%';
+select user_id,name,mail from Users
+where regexp_like(mail,'^[A-Za-z][A-Za-z0-9_.-]*@leetcode\\.com$','c') ;
 
 
