@@ -33,14 +33,14 @@ Only one valid answer exists.
 
 from typing import List
 
-class Solution:
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
-        num_map ={}         #stores as key i mean nubmber 
-        for i, num in enumerate(nums):   #here num value with index beacuse of enumerate
-            complement = target - num
-            if complement in num_map:
-                return [num_map[complement], i]
-            num_map[num] = i
+ class solution :
+     def twosum(self , nums : List [int] ,target :int )-> List [int]:
+	       num_map ={}
+		      for i , num in enumerate (nums):           #i = 0, num = 2   next  i = 1, num = 7
+		         complement =traget- num                    #first checked complement = 9 - 2 = 7  then  next   complement = 9 - 7 = 2 
+		         if complement in num_map:                  #7 is not in   next checked 2 is in num_map
+		           return [num_map[complement], i]            #Match found!        Return [num_map[2], 1] → [0, 1]
+		         num_map[num]=i                               #num_map = {2: 0}
 '''
 
 nums = [10, 20, 30]
@@ -64,3 +64,4 @@ Index: 2, Value: 30
 
 
         
+
