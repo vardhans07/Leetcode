@@ -130,5 +130,5 @@ l2 = l2.next  # None
 and thenn fnila otuput 
 Result Linked List: [7, 0, 8]
 
-
+'''
 
