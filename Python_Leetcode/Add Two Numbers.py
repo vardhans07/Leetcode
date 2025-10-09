@@ -52,3 +52,83 @@ class Solution:
 
         return dummy.next
 
+
+
+
+
+'''
+we wlil approach htis way 
+
+342
++465
+-----
+807
+
+
+You start from the rightmost digit (units place), right? 2 + 5 = 7
+Then 4 + 6 = 10 → write 0, carry 1 Then 3 + 4 + 1 (carry) = 8
+
+
+## First Iteration (units place: 2 + 5)
+
+>> val1 = l1.val if l1 else 0  # val1 = 2
+>> val2 = l2.val if l2 else 0  # val2 = 5
+
+
+>> total = val1 + val2 + carry  # total = 2 + 5 + 0 = 7
+>> carry = total // 10          # carry = 7 // 10 = 0
+>> current.next = ListNode(total % 10)  # current.next = ListNode(7)
+>> current = current.next               # move current to the new node
+
+# First digit of result: 7
+
+## Sceond Iteration (tens place: 4 + 6)
+
+
+>> val1 = 4
+>> val2 = 6
+>> total = 4 + 6 + 0 = 10
+>> carry = 10 // 10 = 1
+>> current.next = ListNode(10 % 10) = ListNode(0)
+>> current = current.next
+
+
+>> l1 = l1.next  # move to 3
+>> l2 = l2.next  # move to 4
+
+
+# Second digit of result: 0 
+# Carry is now 1
+
+## Third Iteration (hundreds place: 3 + 4 + carry)
+
+
+
+val1 = 3
+val2 = 4
+total = 3 + 4 + 1 = 8
+carry = 8 // 10 = 0
+current.next = ListNode(8 % 10) = ListNode(8)
+current = current.next
+
+
+
+l1 = l1.next  # None
+l2 = l2.next  # None
+
+
+# Third dgiit of result: 8 
+# No carry left
+
+## Loop Ends
+
+>> return dummy.next
+
+# dummy.next points to the result list: 7 → 0 → 8
+# This represents 807
+
+and thenn fnila otuput 
+Result Linked List: [7, 0, 8]
+
+
+
