@@ -41,10 +41,29 @@ Constraints:
 class Solution:
     def maximumEnergy(self, energy: List[int], k: int) -> int:
         dp = energy[:]  # here you can see [:], you get a separate copy.  thats mean dp is a new list with the same values as original(energy).
-        n = len(energy) # lenght of energy 
+        n = len(energy) #energy = [5, 2, -10, -5, 1] then len(energy) = 5 (because there are 5 numbers in the list) 
         for i in range(n - 1 - k, -1, -1):    #range(start, stop, step)  here Step by -1 (step) → move one index backward each time
             dp[i] += dp[i + k]
         return max(dp)
+
+# start	n - 1 - k → the last index that allows a jump of k steps forward
+# stop	-1 → loop stops before reaching index -1 (i.e., stops at 0)
+# step	-1 → move backward one index at a time
+
+# then here n= 5 and k =3 menas range(5 - 1 - 3, -1, -1):  --->> it will (1,-1,1)
+#energy = [5, 2, -10, -5, 1]
+#k = 3
+#n = len(energy) = 5
+#--------------->>>
+#So i will take values: 1, 0
+#Step-by-Step Execution
+#i = 1
+#dp[1] += dp[1 + 3] → dp[1] += dp[4] -->> dp[1] +dp[4] = 2+1
+#dp[1] = 2 + 1 = 3
+#i = 0
+#dp[0] += dp[0 + 3] → dp[0] += dp[3]
+#dp[0] = 5 + (-5) = 0
+#Now dp = [0, 3, -10, -5, 1]
 
 '''
 for Example
@@ -65,7 +84,15 @@ Ans :
 
 '''
 or 
+
+You can approach this quetion like below 
+
 '''
+# ----------------->>
+
+#energy = [5, 2, -10, -5, 1]
+#k = 3
+#n = len(energy) = 5
 
 from typing import List
 
