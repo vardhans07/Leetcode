@@ -46,6 +46,20 @@ class Solution:
             dp[i] += dp[i + k]
         return max(dp)
 
+'''
+for Example
+for i in range(5, -2, -1):
+    print(i)
+Ans :
+5
+4
+3
+2
+1
+0
+-1
+# It stops before reaching -2, and moves backward one-by-one because of -1 step.
+'''
 
 
 
