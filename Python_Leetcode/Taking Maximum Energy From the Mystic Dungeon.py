@@ -40,11 +40,14 @@ Constraints:
 
 class Solution:
     def maximumEnergy(self, energy: List[int], k: int) -> int:
-        dp = energy[:]
-        n = len(energy)
-        for i in range(n - 1 - k, -1, -1):
+        dp = energy[:]  # here you can see [:], you get a separate copy.  thats mean dp is a new list with the same values as original(energy).
+        n = len(energy) # lenght of energy 
+        for i in range(n - 1 - k, -1, -1):    #range(start, stop, step)  here Step by -1 (step) → move one index backward each time
             dp[i] += dp[i + k]
         return max(dp)
+
+
+
 
 '''
 or 
@@ -69,3 +72,5 @@ class Solution:
         for start in range(n):
             max_gain = max(max_gain, dfs(start))
         return max_gain
+
+
