@@ -36,11 +36,11 @@ Constraints:
 
 class Solution:
     def hasIncreasingSubarrays(self, nums: list[int], k: int) -> bool:
-        pre = 0
-        cur = 1
-        max_valid = 0
+        pre = 0               #pre: stores length of previous increasing sequence
+        cur = 1                #cur: starts at 1 because we begin with one element
+        max_valid = 0         #max_valid: tracks the best possible length that could represent two adjacent increasing subarrays
 
-        for i in range(1, len(nums)):
+        for i in range(1, len(nums)):    #We loop from index 1 to end of array.
             if nums[i] > nums[i - 1]:
                 cur += 1
             else:
@@ -50,6 +50,46 @@ class Solution:
 
         max_valid = max(max_valid, cur // 2, min(pre, cur))
         return max_valid >= k
+'''
+Explanation  ----->>
+i = 1 → nums[1] = 5 > nums[0] = 2
+cur += 1 → cur = 2
+i = 2 → nums[2] = 7 > nums[1] = 5
+cur += 1 → cur = 3
+i = 3 → nums[3] = 8 > nums[2] = 7
+cur += 1 → cur = 4
+i = 4 → nums[4] = 9 > nums[3] = 8
+cur += 1 → cur = 5
+wrong  i = 5 → nums[5] = 2 < nums[4] = 9
+Sequence breaks.
+max_valid = max(0, 5 // 2, min(0, 5)) → max_valid = 2
+pre = 5
+cur = 1
+
+
+i = 6 → nums[6] = 3 > nums[5] = 2
+cur += 1 → cur = 2
+i = 7 → nums[7] = 4 > nums[6] = 3
+cur += 1 → cur = 3
+
+wrong i = 8 → nums[8] = 3 < nums[7] = 4
+Sequence breaks again.
+ max_valid = max(2, 3 // 2, min(5, 3)) → max_valid = 3
+pre = 3
+cur = 1
+
+wrong i = 9 → nums[9] = 1 < nums[8] = 3 
+Sequence breaks again.
+ max_valid = max(3, 1 // 2, min(3, 1)) → max_valid = 3
+pre = 1
+cur = 1
+
+Final Check
+max_valid = max(3, 1 // 2, min(1, 1)) → still 3
+return max_valid >= k → 3 >= 3 → True
+
+'''
+
 
 
 '''
