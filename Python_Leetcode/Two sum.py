@@ -59,7 +59,7 @@ Index: 2, Value: 30
 ## --->>  for this line why we used     num_map[num]=i       ----->>   #num_map = {2: 0}
 
 Step-by-step:
-First iteration: i = 0, num = 2
+-->> First iteration: i = 0, num = 2
 
 complement = 9 - 2 = 7
 
@@ -67,7 +67,7 @@ complement = 9 - 2 = 7
 
 So we store 2 in the map: num_map[2] = 0 → now num_map = {2: 0}
 
-Second iteration: i = 1, num = 7
+-->> Second iteration: i = 1, num = 7
 
 complement = 9 - 7 = 2
 
@@ -84,6 +84,7 @@ Return [num_map[2], 1] → [0, 1]
 
 
         
+
 
 
 
