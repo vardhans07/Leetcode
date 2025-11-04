@@ -54,7 +54,27 @@ Index: 0, Value: 10
 Index: 1, Value: 20
 Index: 2, Value: 30
 '''
+'''
 
+## --->>  for this line why we used     num_map[num]=i       ----->>   #num_map = {2: 0}
+
+Step-by-step:
+First iteration: i = 0, num = 2
+
+complement = 9 - 2 = 7
+
+7 is not in num_map
+
+So we store 2 in the map: num_map[2] = 0 → now num_map = {2: 0}
+
+Second iteration: i = 1, num = 7
+
+complement = 9 - 7 = 2
+
+2 is in num_map → match found!
+
+Return [num_map[2], 1] → [0, 1]
+'''
 #nums is your list of integers.
 # enumerate(nums) returns pairs: each pair contains the index and the value at that index.
 #i is the index (position in the list).
@@ -64,5 +84,6 @@ Index: 2, Value: 30
 
 
         
+
 
 
